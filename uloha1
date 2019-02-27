@@ -16,9 +16,13 @@ parameters:
     label: Image
     default: cirros
 
-  name:
+  name1:
     type: string
-    label: Name
+    label: Name1
+
+  name2:
+    type: string
+    label: Name2
 
   ava_zone:
     type: string
@@ -29,7 +33,7 @@ resources:
   server1:
     type: OS::Nova::Server
     properties:
-      name: { get_param: name }
+      name: { get_param: name1 }
       image: { get_param: image }
       flavor: { get_param: flavor }
       networks:
@@ -39,7 +43,7 @@ resources:
   server2:
     type: OS::Nova::Server
     properties:
-      name: { get_param: name }
+      name: { get_param: name2 }
       image: { get_param: image }
       flavor: { get_param: flavor }
       networks:
