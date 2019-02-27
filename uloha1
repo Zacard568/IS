@@ -37,7 +37,7 @@ resources:
       availability_zone: { get_param: ava_zone }
 
   server2:
-    type: OS::NOVA::Server
+    type: OS::Nova::Server
     properties:
       name: { get_param: name }
       image: { get_param: image }
