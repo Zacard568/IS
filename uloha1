@@ -1,0 +1,47 @@
+heat_template_version: rocky
+
+parameters:
+  net:
+    type: string
+    label: Network
+    default: ext-net
+
+  flavor:
+    type: string
+    label: Flawor
+    default: nano
+
+  image:
+    type: string
+    label: Image
+    default: cirros
+
+  name:
+    type: string
+    label: Name
+
+  ava_zone:
+    type: string
+    label: Availability zone
+    default: compute1
+
+resources:
+  server1:
+    type: OS::NOVA::Server
+    properties:
+      name: { get_param: name }
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      networks:
+        - network: { get_param: net }
+      availability_zone: { get_param: ava_zone }
+
+  server2:
+    type: OS::NOVA::Server
+    properties:
+      name: { get_param: name }
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      networks:
+        - network: { get_param: net }
+      availability_zone: { get_param: ava_zone }
