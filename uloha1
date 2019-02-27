@@ -27,7 +27,7 @@ parameters:
 
 resources:
   server1:
-    type: OS::NOVA::Server
+    type: OS::Nova::Server
     properties:
       name: { get_param: name }
       image: { get_param: image }
