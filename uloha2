@@ -21,6 +21,10 @@ parameters:
     type: string
     default: router
 
+  SSHkeyID:
+    type: string
+    default: key1
+
 resources:
   Net:
     type: OS::Neutron::Net
@@ -63,3 +67,19 @@ resources:
     properties:
       router: { get_resource: Router }
       port: { get_resource: RouterPort }
+
+  Jump:
+    type: OS::Nova::Server
+    properties:
+      name: jump
+      availability_zone: compute1
+      flavor: linux
+      image: ubuntu_server_18.04_amd64_Openstack
+      user_data_update_policy: REPLACE
+      key_name: key1
+      networks:
+        - subnet: { get_resource: Subnet }
+      user_data_format: RAW
+      user_data: |
+        #!/bin/bash
+        apt-get update -y
