@@ -49,3 +49,17 @@ resources:
         enable_snat: True,
         network: ext-net
       }
+
+  RouterPort:
+    type: OS::Neutron::Port
+    properties:
+      name: RouterPort
+      fixed_ips:
+        - ip_address: 10.0.0.1
+      network: { get_resource: Net }
+
+  RouterInterface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router: { get_resource: Router }
+      port: { get_resource: RouterPort }
