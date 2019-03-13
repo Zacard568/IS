@@ -91,6 +91,7 @@ resources:
       fixed_ips:
         - subnet: { get_resource: PrivateSubnet }
       network: { get_resource: Net }
+      security_groups: { SecurityGroup1 }
 
   JumpFloatingIp:
     type: OS::Neutron::FloatingIP
