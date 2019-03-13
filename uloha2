@@ -140,7 +140,7 @@ resources:
     properties:
       name: ProxyPort
       fixed_ips:
-        - ip_address: 10.0.0.2
+        - ip_address: 10.0.0.12
       network: { get_resource: Net }
       security_groups: [ ProxySecurityGroup ]
 
@@ -173,6 +173,6 @@ resources:
     properties:
       name: ApachePort
       fixed_ips:
-        - ip_address: 10.0.0.3
+        - ip_address: 10.0.0.31
       network: { get_resource: Net }
       security_groups: [ ApacheSecurityGroup ]
