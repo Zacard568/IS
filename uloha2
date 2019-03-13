@@ -133,7 +133,7 @@ resources:
       name: ProxySecurityGroup
       rules:
         - { remote_ip_prefix: 10.0.0.0/8, direction: ingress }
-        - { remote_ip_prefix: 10.0.0.0/8, direction: egress }
+        - { remote_ip_prefix: 0.0.0.0/0, direction: egress }
 
   ProxyPort:
     type: OS::Neutron::Port
@@ -154,7 +154,7 @@ resources:
       user_data_update_policy: REPLACE
       key_name: key1
       networks:
-        - port: { get_resource: ProxyPort }
+        - port: { get_resource: ApachePort }
       user_data_format: RAW
       user_data: |
         #!/bin/bash
