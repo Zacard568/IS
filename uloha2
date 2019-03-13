@@ -101,3 +101,11 @@ resources:
     properties:
       floatingip_id: { get_resource: JumpFloatingIp }
       port_id: { get_resource: JumpPort }
+
+  ServerSecurityGroup1:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      name: SecurityGroup1
+      rules:
+        - { remote_ip_prefix: 158.193.0.0/16, direction: ingress, protocol: icmp }
+        - { remote_ip_prefix: 158.193.0.0/16, direction: ingress, protocol: icmp, port_range_min: 22, port_range_max: 22 }
