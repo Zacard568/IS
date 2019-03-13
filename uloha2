@@ -97,7 +97,7 @@ resources:
     properties:
       floating_network: ext-net
   JumpFloatingIpAssocation:
-    type: OS::Neutron::FloatingIPAssocation
+    type: OS::Neutron::FloatingIPAssociation
     properties:
       floatingip_id: { get_resource: JumpFloatingIp }
       port_id: { get_resource: JumpPort }
