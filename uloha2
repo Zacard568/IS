@@ -114,7 +114,7 @@ resources:
   Proxy:
     type: OS::Nova::Server
     properties:
-      name: jump
+      name: Proxy
       availability_zone: compute1
       flavor: linux
       image: ubuntu_server_18.04_amd64_Openstack
