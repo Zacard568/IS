@@ -125,7 +125,8 @@ resources:
       user_data_format: RAW
       user_data: |
         #!/bin/bash
-        apt-get update -y
+        apt-get -y update
+        apt-get -y install squid3
 
   ProxySecurityGroup2:
     type: OS::Neutron::SecurityGroup
@@ -158,7 +159,8 @@ resources:
       user_data_format: RAW
       user_data: |
         #!/bin/bash
-        apt-get update -y
+        apt-get -y update
+        apt-get -y install apache2
 
   ApacheSecurityGroup2:
     type: OS::Neutron::SecurityGroup
