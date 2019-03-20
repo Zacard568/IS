@@ -166,7 +166,7 @@ resources:
       name: ApacheSecurityGroup
       rules:
         - { remote_ip_prefix: 10.0.0.0/8, direction: ingress }
-        - { remote_ip_prefix: 10.0.0.0/8, direction: egress }
+        - { remote_ip_prefix: 0.0.0.0/0, direction: egress }
 
   ApachePort:
     type: OS::Neutron::Port
